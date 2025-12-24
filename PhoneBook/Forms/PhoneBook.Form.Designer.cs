@@ -31,11 +31,20 @@
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.contactsListGroupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contactListDgv = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ContactId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchGroupBox.SuspendLayout();
             this.contactsListGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactListDgv)).BeginInit();
             this.SuspendLayout();
             // 
             // searchGroupBox
@@ -57,7 +66,7 @@
             // 
             // contactsListGroupBox
             // 
-            this.contactsListGroupBox.Controls.Add(this.dataGridView1);
+            this.contactsListGroupBox.Controls.Add(this.contactListDgv);
             this.contactsListGroupBox.Location = new System.Drawing.Point(13, 98);
             this.contactsListGroupBox.Name = "contactsListGroupBox";
             this.contactsListGroupBox.Size = new System.Drawing.Size(653, 434);
@@ -65,16 +74,29 @@
             this.contactsListGroupBox.TabStop = false;
             this.contactsListGroupBox.Text = "Search";
             // 
-            // dataGridView1
+            // contactListDgv
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(647, 404);
-            this.dataGridView1.TabIndex = 0;
+            this.contactListDgv.AllowUserToAddRows = false;
+            this.contactListDgv.AllowUserToDeleteRows = false;
+            this.contactListDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contactListDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ContactId,
+            this.FirstName,
+            this.LastName,
+            this.ContactNumber,
+            this.Email,
+            this.GroupName,
+            this.Relationship,
+            this.Address,
+            this.Note});
+            this.contactListDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactListDgv.Location = new System.Drawing.Point(3, 27);
+            this.contactListDgv.Name = "contactListDgv";
+            this.contactListDgv.ReadOnly = true;
+            this.contactListDgv.RowHeadersWidth = 62;
+            this.contactListDgv.RowTemplate.Height = 28;
+            this.contactListDgv.Size = new System.Drawing.Size(647, 404);
+            this.contactListDgv.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -85,6 +107,78 @@
             this.toolStrip1.Size = new System.Drawing.Size(678, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // ContactId
+            // 
+            this.ContactId.HeaderText = "Id";
+            this.ContactId.MinimumWidth = 8;
+            this.ContactId.Name = "ContactId";
+            this.ContactId.ReadOnly = true;
+            this.ContactId.Width = 150;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.MinimumWidth = 8;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Width = 150;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.MinimumWidth = 8;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 150;
+            // 
+            // ContactNumber
+            // 
+            this.ContactNumber.HeaderText = "Number";
+            this.ContactNumber.MinimumWidth = 8;
+            this.ContactNumber.Name = "ContactNumber";
+            this.ContactNumber.ReadOnly = true;
+            this.ContactNumber.Width = 150;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 8;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 150;
+            // 
+            // GroupName
+            // 
+            this.GroupName.HeaderText = "Group";
+            this.GroupName.MinimumWidth = 8;
+            this.GroupName.Name = "GroupName";
+            this.GroupName.ReadOnly = true;
+            this.GroupName.Width = 150;
+            // 
+            // Relationship
+            // 
+            this.Relationship.HeaderText = "Relationship";
+            this.Relationship.MinimumWidth = 8;
+            this.Relationship.Name = "Relationship";
+            this.Relationship.ReadOnly = true;
+            this.Relationship.Width = 150;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 8;
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 150;
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Note";
+            this.Note.MinimumWidth = 8;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            this.Note.Width = 150;
             // 
             // PhoneBookForm
             // 
@@ -102,10 +196,11 @@
             this.Name = "PhoneBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phone Book";
+            this.Load += new System.EventHandler(this.PhoneBookForm_Load);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
             this.contactsListGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactListDgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,8 +211,17 @@
         private System.Windows.Forms.GroupBox searchGroupBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox contactsListGroupBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView contactListDgv;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Relationship;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
     }
 }
 

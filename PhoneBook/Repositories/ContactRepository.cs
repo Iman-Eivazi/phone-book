@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace PhoneBook.Repositories
 {
-    internal class PhoneBookRepository : IPhoneBookRepository
+    internal class ContactRepository : IContactRepository
     {
         #region Variables
         // This is the path to our data-base
-        const string _connectionString = "Data Source = .; Initial Catalog = PhoneBookDb; Integrated Security = True;";
+        const string _connectionString = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = PhoneBookDb; Integrated Security = True;";
 
         #endregion
 
@@ -33,10 +33,18 @@ namespace PhoneBook.Repositories
 
                     return contactsList;
                 }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show($"Database Error: {sqlEx.Message}\n\nConnection String: {_connectionString}",
+                                    "SQL Server Connection Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return new DataTable();
+                }
                 catch (Exception ex)
                 {
                     // If anything goes wrong, handle the error and show the error message.
-                    MessageBox.Show($"Error loading contacts: {ex.Message}",
+                    MessageBox.Show($"Error while loading contacts: {ex.Message}",
                                     "Database Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
