@@ -7,12 +7,19 @@ namespace PhoneBook
 {
     public partial class PhoneBookForm : Form
     {
+        #region Global Variables
+        // Dependecy Injection
         IContactRepository contact;
 
+        #endregion
+
+        #region Methods
+        // Constructor
         public PhoneBookForm()
         {
             InitializeComponent();
 
+            // Initialize DI
             contact = new ContactRepository();
         }
 
@@ -34,6 +41,8 @@ namespace PhoneBook
                 // Fetch data from repository and bind to DataGridView
                 contactListDgv.DataSource = contact.GetAllContacts();
 
+
+                // Init the property name, so every record in db will have a column
                 contactListDgv.Columns[0].DataPropertyName = "ContactId";
                 contactListDgv.Columns[1].DataPropertyName = "FirstName";
                 contactListDgv.Columns[2].DataPropertyName = "LastName";
@@ -52,6 +61,7 @@ namespace PhoneBook
                                 MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }
 
