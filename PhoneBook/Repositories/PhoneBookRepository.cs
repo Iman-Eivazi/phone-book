@@ -14,6 +14,7 @@ namespace PhoneBook.Repositories
 
         #endregion
 
+        #region Methods
         public DataTable GetAllContacts()
         {
             // It represent a sql connection, so we can use it to transfer datas.
@@ -27,7 +28,8 @@ namespace PhoneBook.Repositories
 
                 try
                 {
-                    adapter.Fill(contactsList); // Fill recieved datas.
+                    // Fill recieved datas.
+                    adapter.Fill(contactsList);
 
                     return contactsList;
                 }
@@ -43,5 +45,10 @@ namespace PhoneBook.Repositories
                 }
             }
         }
+
+
+
+        // some bullshit
+        #endregion
     }
 }
