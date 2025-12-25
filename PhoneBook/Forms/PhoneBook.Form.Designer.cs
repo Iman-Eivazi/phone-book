@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.contactsListGroupBox = new System.Windows.Forms.GroupBox();
             this.contactListDgv = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ContactId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +41,7 @@
             this.Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.searchGroupBox.SuspendLayout();
             this.contactsListGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contactListDgv)).BeginInit();
@@ -49,7 +49,7 @@
             // 
             // searchGroupBox
             // 
-            this.searchGroupBox.Controls.Add(this.textBox1);
+            this.searchGroupBox.Controls.Add(this.searchTextBox);
             this.searchGroupBox.Location = new System.Drawing.Point(13, 12);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Size = new System.Drawing.Size(653, 80);
@@ -57,12 +57,15 @@
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Search";
             // 
-            // textBox1
+            // searchTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(641, 31);
-            this.textBox1.TabIndex = 0;
+            this.searchTextBox.Location = new System.Drawing.Point(6, 30);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(641, 31);
+            this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.Text = "Name, email, number, note or etc...";
+            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // contactsListGroupBox
             // 
@@ -97,16 +100,6 @@
             this.contactListDgv.RowTemplate.Height = 28;
             this.contactListDgv.Size = new System.Drawing.Size(647, 404);
             this.contactListDgv.TabIndex = 0;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Location = new System.Drawing.Point(0, 563);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(678, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // ContactId
             // 
@@ -180,6 +173,16 @@
             this.Note.ReadOnly = true;
             this.Note.Width = 150;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 550);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(678, 38);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // PhoneBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -209,7 +212,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox searchGroupBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.GroupBox contactsListGroupBox;
         private System.Windows.Forms.DataGridView contactListDgv;
         private System.Windows.Forms.ToolStrip toolStrip1;

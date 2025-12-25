@@ -7,7 +7,7 @@ namespace PhoneBook
 {
     public partial class PhoneBookForm : Form
     {
-        #region Global Variables
+        #region Variables
         // Dependecy Injection
         IContactRepository contact;
 
@@ -57,6 +57,27 @@ namespace PhoneBook
             {
                 MessageBox.Show($"Error loading contacts: {ex.Message}",
                                 "Database Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void searchTextBox_Click(object sender, EventArgs e)
+        {
+            searchTextBox.Text = "";
+        }
+
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+                contactListDgv.DataSource = contact.SearchContact(searchTextBox.Text.ToLower());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching: {ex.Message}",
+                                "Search Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }

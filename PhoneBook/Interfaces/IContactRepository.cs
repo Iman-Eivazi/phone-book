@@ -6,5 +6,7 @@ namespace PhoneBook.Interfaces
     {
         // This method use for getting all contacts at a same time; 
         DataTable GetAllContacts(); // Read all query
+
+        DataTable SearchContact(string parameter);
     }
 }
